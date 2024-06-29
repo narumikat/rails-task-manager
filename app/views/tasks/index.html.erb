@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="d-flex justify-content-center mt-4">
+    <div class="row col-6">
+      <h1>My tasks:</h1>
+      <% @tasks.each do |task| %>
+        <div class="d-flex justify-content-between m-2">
+          <div class="form-check">
+            <%= check_box_tag "task_ids[]", task.id, task.completed, class: "form-check-input" %>
+            <%= label_tag task.title, link_to(task.title, task_path(task)) %>
+          </div>
+          <%= link_to 'Delete', task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
+        </div>
+      <% end %>
+      <div class="d-flex mt-4">
+        <%= link_to 'New Task', new_task_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>

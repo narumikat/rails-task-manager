@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between">
+    <div>
+      <h1>Task: <%= @task.title %></h1>
+    </div>
+    <div>
+      <%= link_to 'Edit this task', edit_task_path, class: "btn btn-secondary"%>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <div class="task-bg col-6">
+      <%= @task.details %>
+    </div>
+  </div>
+  <%= link_to 'Back to the List', tasks_path, class: "btn btn-primary back-btn"%>
+</div>
+<style>
+  .task-bg {
+  background-color: #cfe2ff;
+  border: 2px solid #9ec5fe;
+  border-radius: 8px;
+  padding: 1rem;
+  font-weight: bold;
+  }
+
+  .back-btn {
+    color: #fff;
+  }
+</style>
